@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Grafici</title>
 </head>
 <body>
-    <div id="curve_chart" style="width: 1100px; height: 700px"></div>
+    <div class="container">
+        <div class="input-section">
+            <label for="graphType">Tipo di grafico:</label>
+            <select id="graphType" onchange="updateInputFields()">
+                <option value="parabola">Parabola</option>
+                <option value="retta">Retta</option>
+            </select>
+        </div>
+        <div id="inputFields">
+        </div>
+        <button onclick="drawGraph()">Disegna Grafico</button>
+        <div id="curve_chart" style="width: 1100px; height: 700px"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
