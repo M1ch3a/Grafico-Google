@@ -58,4 +58,41 @@ class GraficoParabola extends Grafico {
     }
 }
 
-grafico = new GraficoParabola(10,2,3)
+function updateInputFields() {
+    const graphType = document.getElementById('graphType').value;
+    const inputFieldsDiv = document.getElementById('inputFields');
+    inputFieldsDiv.innerHTML = '';
+
+    if (graphType === 'parabola') {
+        inputFieldsDiv.innerHTML = `
+            <label for="a">a:</label>
+            <input type="number" id="a" name="a">
+            <label for="b">b:</label>
+            <input type="number" id="b" name="b">
+            <label for="c">c:</label>
+            <input type="number" id="c" name="c">
+        `;
+    } else if (graphType === 'retta') {
+        inputFieldsDiv.innerHTML = `
+            <label for="m">m:</label>
+            <input type="number" id="m" name="m">
+            <label for="q">q:</label>
+            <input type="number" id="q" name="q">
+        `;
+    }
+}
+
+function drawGraph() {
+    const graphType = document.getElementById('graphType').value;
+
+    if (graphType === 'parabola') {
+        const a = parseFloat(document.getElementById('a').value);
+        const b = parseFloat(document.getElementById('b').value);
+        const c = parseFloat(document.getElementById('c').value);
+        new GraficoParabola(a, b, c);
+    } else if (graphType === 'retta') {
+        const m = parseFloat(document.getElementById('m').value);
+        const q = parseFloat(document.getElementById('q').value);
+        new GraficoRetta(m, q);
+    }
+}
